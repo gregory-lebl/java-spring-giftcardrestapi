@@ -14,4 +14,33 @@ public class Company {
     private UUID id;
     private String name;
     private String siren;
+
+    public Company(String name, String siren) {
+        this.name = name;
+        this.siren = siren;
+    }
+
+    public Company() {
+
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSiren() {
+        return siren;
+    }
+
+    public void setSiren(String siren) {
+        this.siren = siren;
+    }
 }
