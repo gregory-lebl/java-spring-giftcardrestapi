@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/user")
 public class UserController {
     private final UserService service;
 
@@ -18,7 +19,7 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping("/api/users")
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<User> getUsers() {
@@ -29,14 +30,14 @@ public class UserController {
         return users;
     }
 
-    @PostMapping("/api/user/create")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public User createUser(@RequestBody User user) {
         return service.createUser(user);
     }
 
-    @PostMapping("/api/user/login")
+    @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public UserLoginDto login(@RequestBody User user) {
