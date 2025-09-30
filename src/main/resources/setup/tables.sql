@@ -10,7 +10,7 @@ create table public."user"
     primary key ("id")
 );
 
-create table public."company"
+create table public."companyId"
 (
     "id"         uuid    not null default gen_random_uuid(),
     "name"       varchar not null,
@@ -24,7 +24,7 @@ create table public."card"
 (
     "id"         uuid    not null default gen_random_uuid(),
     "user_id"    uuid    not null references "user" (id),
-    "company_id" uuid    not null references "company" (id),
+    "company_id" uuid    not null references "companyId" (id),
     "amount"     integer not null,
     "expire_at"  date    not null,
     "created_at" date    not null default now(),

@@ -1,5 +1,6 @@
 package com.gregoryleblond.giftcardrestapi.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,9 +16,9 @@ public class Company {
     private String name;
     private String siren;
 
-    public Company(String name, String siren) {
-        this.name = name;
-        this.siren = siren;
+    @JsonCreator
+    public Company(UUID id) {
+        this.id = id;
     }
 
     public Company() {

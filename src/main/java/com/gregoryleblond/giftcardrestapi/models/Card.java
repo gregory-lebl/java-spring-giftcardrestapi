@@ -12,28 +12,27 @@ public class Card {
     private UUID id;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User userId;
+    private User user;
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
     private Integer amount;
-    private Date createdAt;
     private Date expireAt;
 
     public Company getCompany() {
         return company;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompany(Company companyId) {
+        this.company = companyId;
     }
 
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public UUID getId() {
