@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:17
+    container_name: postgres17
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: SuperStrongPassword1&
+      POSTGRES_DB: giftcard
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  postgres_data:
+    driver: local
